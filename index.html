@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Consulta de Notas</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+margin-top:100px;
+}
+
+input{
+padding:10px;
+width:250px;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+}
+
+#resultado{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Consulta de Notas</h1>
+
+<p>Digite seu código:</p>
+
+<input type="text" id="codigo">
+
+<br><br>
+
+<button onclick="consultar()">Consultar</button>
+
+<div id="resultado"></div>
+
+<script>
+
+const alunos = {
+
+"A12345":{
+nome:"João Silva",
+nota:"8.5",
+situacao:"Aprovado"
+},
+
+"B67890":{
+nome:"Maria Souza",
+nota:"9.2",
+situacao:"Aprovada"
+},
+
+"C11223":{
+nome:"Pedro Santos",
+nota:"6.0",
+situacao:"Recuperação"
+}
+
+};
+
+function consultar(){
+
+let codigo =
+document.getElementById("codigo").value;
+
+let aluno = alunos[codigo];
+
+if(aluno){
+
+document.getElementById("resultado").innerHTML=
+`
+Nome: ${aluno.nome}<br>
+Nota: ${aluno.nota}<br>
+Situação: ${aluno.situacao}
+`;
+
+}else{
+
+document.getElementById("resultado").innerHTML=
+"Código não encontrado.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
